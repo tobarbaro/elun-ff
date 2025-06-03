@@ -60,7 +60,7 @@ class _PostFormWidgetState extends State<PostFormWidget> {
           key: _model.formKey,
           autovalidateMode: AutovalidateMode.disabled,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 40.0, 20.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,

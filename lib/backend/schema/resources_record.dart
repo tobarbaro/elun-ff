@@ -30,22 +30,22 @@ class ResourcesRecord extends FirestoreRecord {
   String get excerpt => _excerpt ?? '';
   bool hasExcerpt() => _excerpt != null;
 
-  // "content" field.
-  String? _content;
-  String get content => _content ?? '';
-  bool hasContent() => _content != null;
-
   // "reading_time" field.
   int? _readingTime;
   int get readingTime => _readingTime ?? 0;
   bool hasReadingTime() => _readingTime != null;
 
+  // "order" field.
+  int? _order;
+  int get order => _order ?? 0;
+  bool hasOrder() => _order != null;
+
   void _initializeFields() {
     _image = snapshotData['image'] as String?;
     _title = snapshotData['title'] as String?;
     _excerpt = snapshotData['excerpt'] as String?;
-    _content = snapshotData['content'] as String?;
     _readingTime = castToType<int>(snapshotData['reading_time']);
+    _order = castToType<int>(snapshotData['order']);
   }
 
   static CollectionReference get collection =>
@@ -86,16 +86,16 @@ Map<String, dynamic> createResourcesRecordData({
   String? image,
   String? title,
   String? excerpt,
-  String? content,
   int? readingTime,
+  int? order,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'image': image,
       'title': title,
       'excerpt': excerpt,
-      'content': content,
       'reading_time': readingTime,
+      'order': order,
     }.withoutNulls,
   );
 
@@ -110,13 +110,13 @@ class ResourcesRecordDocumentEquality implements Equality<ResourcesRecord> {
     return e1?.image == e2?.image &&
         e1?.title == e2?.title &&
         e1?.excerpt == e2?.excerpt &&
-        e1?.content == e2?.content &&
-        e1?.readingTime == e2?.readingTime;
+        e1?.readingTime == e2?.readingTime &&
+        e1?.order == e2?.order;
   }
 
   @override
   int hash(ResourcesRecord? e) => const ListEquality()
-      .hash([e?.image, e?.title, e?.excerpt, e?.content, e?.readingTime]);
+      .hash([e?.image, e?.title, e?.excerpt, e?.readingTime, e?.order]);
 
   @override
   bool isValidKey(Object? o) => o is ResourcesRecord;

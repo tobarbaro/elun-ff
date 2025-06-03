@@ -17,6 +17,20 @@
           "order": "DESCENDING"
         }
       ]
+    },
+    {
+      "collectionGroup": "resource_rows",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "resource_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "order",
+          "order": "ASCENDING"
+        }
+      ]
     }
   ]
 }

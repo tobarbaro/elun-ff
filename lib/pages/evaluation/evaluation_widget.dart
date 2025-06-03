@@ -269,6 +269,9 @@ class _EvaluationWidgetState extends State<EvaluationWidget> {
                                   ),
                                   FFButtonWidget(
                                     onPressed: () async {
+                                      _model.score =
+                                          _model.score + _model.sliderP1Value!;
+                                      safeSetState(() {});
                                       await _model.pageViewController?.nextPage(
                                         duration: Duration(milliseconds: 300),
                                         curve: Curves.ease,
@@ -450,6 +453,12 @@ class _EvaluationWidgetState extends State<EvaluationWidget> {
                                   ),
                                   FFButtonWidget(
                                     onPressed: () async {
+                                      _model.score = _model.score +
+                                          valueOrDefault<double>(
+                                            _model.sliderP2Value,
+                                            0.0,
+                                          );
+                                      safeSetState(() {});
                                       await _model.pageViewController?.nextPage(
                                         duration: Duration(milliseconds: 300),
                                         curve: Curves.ease,
@@ -631,6 +640,12 @@ class _EvaluationWidgetState extends State<EvaluationWidget> {
                                   ),
                                   FFButtonWidget(
                                     onPressed: () async {
+                                      _model.score = _model.score +
+                                          valueOrDefault<double>(
+                                            _model.sliderP3Value,
+                                            0.0,
+                                          );
+                                      safeSetState(() {});
                                       await _model.pageViewController?.nextPage(
                                         duration: Duration(milliseconds: 300),
                                         curve: Curves.ease,
@@ -811,6 +826,12 @@ class _EvaluationWidgetState extends State<EvaluationWidget> {
                                   ),
                                   FFButtonWidget(
                                     onPressed: () async {
+                                      _model.score = _model.score +
+                                          valueOrDefault<double>(
+                                            _model.sliderP4Value,
+                                            0.0,
+                                          );
+                                      safeSetState(() {});
                                       await _model.pageViewController?.nextPage(
                                         duration: Duration(milliseconds: 300),
                                         curve: Curves.ease,
@@ -992,6 +1013,12 @@ class _EvaluationWidgetState extends State<EvaluationWidget> {
                                   ),
                                   FFButtonWidget(
                                     onPressed: () async {
+                                      _model.score = _model.score +
+                                          valueOrDefault<double>(
+                                            _model.sliderP5Value,
+                                            0.0,
+                                          );
+                                      safeSetState(() {});
                                       await _model.pageViewController?.nextPage(
                                         duration: Duration(milliseconds: 300),
                                         curve: Curves.ease,
@@ -1173,7 +1200,22 @@ class _EvaluationWidgetState extends State<EvaluationWidget> {
                                   ),
                                   FFButtonWidget(
                                     onPressed: () async {
-                                      context.goNamed(ResultsWidget.routeName);
+                                      _model.score = _model.score +
+                                          valueOrDefault<double>(
+                                            _model.sliderP6Value,
+                                            0.0,
+                                          );
+                                      safeSetState(() {});
+
+                                      context.goNamed(
+                                        ResultsWidget.routeName,
+                                        queryParameters: {
+                                          'score': serializeParam(
+                                            _model.score,
+                                            ParamType.double,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     text: 'Enviar',
                                     options: FFButtonOptions(

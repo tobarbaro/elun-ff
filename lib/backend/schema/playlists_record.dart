@@ -30,10 +30,16 @@ class PlaylistsRecord extends FirestoreRecord {
   String get url => _url ?? '';
   bool hasUrl() => _url != null;
 
+  // "order" field.
+  int? _order;
+  int get order => _order ?? 0;
+  bool hasOrder() => _order != null;
+
   void _initializeFields() {
     _image = snapshotData['image'] as String?;
     _title = snapshotData['title'] as String?;
     _url = snapshotData['url'] as String?;
+    _order = castToType<int>(snapshotData['order']);
   }
 
   static CollectionReference get collection =>
@@ -74,12 +80,14 @@ Map<String, dynamic> createPlaylistsRecordData({
   String? image,
   String? title,
   String? url,
+  int? order,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'image': image,
       'title': title,
       'url': url,
+      'order': order,
     }.withoutNulls,
   );
 
@@ -93,12 +101,13 @@ class PlaylistsRecordDocumentEquality implements Equality<PlaylistsRecord> {
   bool equals(PlaylistsRecord? e1, PlaylistsRecord? e2) {
     return e1?.image == e2?.image &&
         e1?.title == e2?.title &&
-        e1?.url == e2?.url;
+        e1?.url == e2?.url &&
+        e1?.order == e2?.order;
   }
 
   @override
   int hash(PlaylistsRecord? e) =>
-      const ListEquality().hash([e?.image, e?.title, e?.url]);
+      const ListEquality().hash([e?.image, e?.title, e?.url, e?.order]);
 
   @override
   bool isValidKey(Object? o) => o is PlaylistsRecord;

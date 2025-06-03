@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 class HomeModel extends FlutterFlowModel<HomeWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - getAppVersion] action in Home widget.
+  String? returnAppVersion;
   // Model for Footer component.
   late FooterModel footerModel;
 

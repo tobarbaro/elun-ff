@@ -7,6 +7,8 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
+  // Stores action output result for [Custom Action - getAppVersion] action in Login widget.
+  String? returnAppVersion;
   // State field(s) for InputEmail widget.
   FocusNode? inputEmailFocusNode;
   TextEditingController? inputEmailTextController;

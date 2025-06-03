@@ -37,20 +37,24 @@ class ExerciseFormModel extends FlutterFlowModel<ExerciseFormWidget> {
   TextEditingController? inputObjectiveTextController;
   String? Function(BuildContext, String?)?
       inputObjectiveTextControllerValidator;
+  // State field(s) for InputOrder widget.
+  FocusNode? inputOrderFocusNode;
+  TextEditingController? inputOrderTextController;
+  String? Function(BuildContext, String?)? inputOrderTextControllerValidator;
   // State field(s) for InputInstruction widget.
   FocusNode? inputInstructionFocusNode;
   TextEditingController? inputInstructionTextController;
   String? Function(BuildContext, String?)?
       inputInstructionTextControllerValidator;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_fileUploades = false;
+  FFUploadedFile uploadedLocalFile_fileUploades =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
+  String uploadedFileUrl_fileUploades = '';
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadThumbnail = false;
+  FFUploadedFile uploadedLocalFile_uploadThumbnail =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_uploadThumbnail = '';
 
   // State field(s) for SwitchNeedsWeek widget.
   bool? switchNeedsWeekValue;
@@ -72,6 +76,9 @@ class ExerciseFormModel extends FlutterFlowModel<ExerciseFormWidget> {
 
     inputObjectiveFocusNode?.dispose();
     inputObjectiveTextController?.dispose();
+
+    inputOrderFocusNode?.dispose();
+    inputOrderTextController?.dispose();
 
     inputInstructionFocusNode?.dispose();
     inputInstructionTextController?.dispose();

@@ -18,3 +18,4 @@ export '/pages/configurations/configurations_widget.dart'
 export '/pages/reset_password/reset_password_widget.dart'
     show ResetPasswordWidget;
 export '/pages/profile/profile_widget.dart' show ProfileWidget;
+export '/pages/resource_form/resource_form_widget.dart' show ResourceFormWidget;

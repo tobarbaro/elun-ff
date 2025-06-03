@@ -1,5 +1,6 @@
 import '/components/footer_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'resources_widget.dart' show ResourcesWidget;
 import 'package:flutter/material.dart';
 

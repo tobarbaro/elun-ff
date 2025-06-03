@@ -8,7 +8,12 @@ import 'results_model.dart';
 export 'results_model.dart';
 
 class ResultsWidget extends StatefulWidget {
-  const ResultsWidget({super.key});
+  const ResultsWidget({
+    super.key,
+    double? score,
+  }) : this.score = score ?? 0.0;
+
+  final double score;
 
   static String routeName = 'Results';
   static String routePath = '/results';
@@ -58,7 +63,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(50.0, 40.0, 50.0, 0.0),
                     child: Text(
-                      'Antes de empezar, queremos conocer más sobre ti. Responde este breve test para medir tu nivel de autoestima y personalizar tu experiencia.',
+                      'No importa dónde estés ahora, cada paso que des cuenta. Estamos aquí para apoyarte en el proceso',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             font: GoogleFonts.poppins(
@@ -152,7 +157,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                     ),
                   ),
                 ),
-                if (_model.result == 1)
+                if (widget.score <= 27.0)
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -217,7 +222,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
-                          'assets/images/Capa_1.png',
+                          'assets/images/Group_241.png',
                           width: MediaQuery.sizeOf(context).width * 0.8,
                           fit: BoxFit.fitHeight,
                         ),
@@ -258,7 +263,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                       ),
                     ].divide(SizedBox(height: 30.0)),
                   ),
-                if (_model.result == 2)
+                if ((widget.score >= 28.0) && (widget.score <= 45.0))
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -327,7 +332,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
-                          'assets/images/Capa_1.png',
+                          'assets/images/Group_242.png',
                           width: MediaQuery.sizeOf(context).width * 0.8,
                           fit: BoxFit.fitHeight,
                         ),
@@ -368,7 +373,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                       ),
                     ].divide(SizedBox(height: 30.0)),
                   ),
-                if (_model.result == 3)
+                if (widget.score >= 46.0)
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -437,7 +442,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
-                          'assets/images/Capa_1.png',
+                          'assets/images/Group_243.png',
                           width: MediaQuery.sizeOf(context).width * 0.8,
                           fit: BoxFit.fitHeight,
                         ),

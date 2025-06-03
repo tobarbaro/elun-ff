@@ -89,7 +89,10 @@ class _ExercisesWidgetState extends State<ExercisesWidget> {
                               ),
                             ),
                             StreamBuilder<List<ExercisesRecord>>(
-                              stream: queryExercisesRecord(),
+                              stream: queryExercisesRecord(
+                                queryBuilder: (exercisesRecord) =>
+                                    exercisesRecord.orderBy('order'),
+                              ),
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
@@ -115,6 +118,7 @@ class _ExercisesWidgetState extends State<ExercisesWidget> {
 
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
+                                  primary: false,
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
                                   itemCount: listViewExercisesRecordList.length,
@@ -156,7 +160,7 @@ class _ExercisesWidgetState extends State<ExercisesWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    20.0, 15.0, 20.0, 15.0),
+                                                    15.0, 15.0, 15.0, 15.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -182,10 +186,10 @@ class _ExercisesWidgetState extends State<ExercisesWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                                  15.0,
+                                                                  15.0,
+                                                                  15.0,
+                                                                  15.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
@@ -238,7 +242,7 @@ class _ExercisesWidgetState extends State<ExercisesWidget> {
                                                                           context)
                                                                       .primaryText,
                                                                   fontSize:
-                                                                      12.0,
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:

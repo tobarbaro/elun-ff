@@ -51,6 +51,11 @@ class ExercisesRecord extends FirestoreRecord {
   bool get needsWeek => _needsWeek ?? false;
   bool hasNeedsWeek() => _needsWeek != null;
 
+  // "order" field.
+  int? _order;
+  int get order => _order ?? 0;
+  bool hasOrder() => _order != null;
+
   void _initializeFields() {
     _image = snapshotData['image'] as String?;
     _title = snapshotData['title'] as String?;
@@ -59,6 +64,7 @@ class ExercisesRecord extends FirestoreRecord {
     _objective = snapshotData['objective'] as String?;
     _thumbnail = snapshotData['thumbnail'] as String?;
     _needsWeek = snapshotData['needs_week'] as bool?;
+    _order = castToType<int>(snapshotData['order']);
   }
 
   static CollectionReference get collection =>
@@ -102,6 +108,7 @@ Map<String, dynamic> createExercisesRecordData({
   String? objective,
   String? thumbnail,
   bool? needsWeek,
+  int? order,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -111,6 +118,7 @@ Map<String, dynamic> createExercisesRecordData({
       'objective': objective,
       'thumbnail': thumbnail,
       'needs_week': needsWeek,
+      'order': order,
     }.withoutNulls,
   );
 
@@ -129,7 +137,8 @@ class ExercisesRecordDocumentEquality implements Equality<ExercisesRecord> {
         listEquality.equals(e1?.instructions, e2?.instructions) &&
         e1?.objective == e2?.objective &&
         e1?.thumbnail == e2?.thumbnail &&
-        e1?.needsWeek == e2?.needsWeek;
+        e1?.needsWeek == e2?.needsWeek &&
+        e1?.order == e2?.order;
   }
 
   @override
@@ -140,7 +149,8 @@ class ExercisesRecordDocumentEquality implements Equality<ExercisesRecord> {
         e?.instructions,
         e?.objective,
         e?.thumbnail,
-        e?.needsWeek
+        e?.needsWeek,
+        e?.order
       ]);
 
   @override

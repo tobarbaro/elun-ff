@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -82,27 +83,40 @@ class _FooterWidgetState extends State<FooterWidget> {
                       fit: BoxFit.fitHeight,
                     ),
                   ),
-                  Text(
-                    'Playlist',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.roboto(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
+                  if (functions.printCurrentRoute(getCurrentRoute(context)))
+                    Text(
+                      'Playlist',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .fontStyle,
                           ),
-                          color: FlutterFlowTheme.of(context).accent1,
-                          fontSize: 12.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
-                  ),
+                    ),
+                  if (!functions.printCurrentRoute(getCurrentRoute(context)))
+                    Text(
+                      'Playlist',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w300,
+                              fontStyle: FontStyle.italic,
+                            ),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w300,
+                            fontStyle: FontStyle.italic,
+                          ),
+                    ),
                 ],
               ),
             ),
@@ -132,27 +146,40 @@ class _FooterWidgetState extends State<FooterWidget> {
                       fit: BoxFit.fitHeight,
                     ),
                   ),
-                  Text(
-                    'Ejercicio',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.roboto(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
+                  if (functions.printCurrentRoute(getCurrentRoute(context)))
+                    Text(
+                      'Ejercicio',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .fontStyle,
                           ),
-                          color: FlutterFlowTheme.of(context).accent1,
-                          fontSize: 12.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
-                  ),
+                    ),
+                  if (!functions.printCurrentRoute(getCurrentRoute(context)))
+                    Text(
+                      'Ejercicio',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w300,
+                              fontStyle: FontStyle.italic,
+                            ),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w300,
+                            fontStyle: FontStyle.italic,
+                          ),
+                    ),
                 ],
               ),
             ),
@@ -182,27 +209,40 @@ class _FooterWidgetState extends State<FooterWidget> {
                       fit: BoxFit.fitHeight,
                     ),
                   ),
-                  Text(
-                    'Inicio',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.roboto(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
+                  if (functions.printCurrentRoute(getCurrentRoute(context)))
+                    Text(
+                      'Inicio',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .fontStyle,
                           ),
-                          color: FlutterFlowTheme.of(context).accent1,
-                          fontSize: 12.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
-                  ),
+                    ),
+                  if (!functions.printCurrentRoute(getCurrentRoute(context)))
+                    Text(
+                      'Inicio',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w300,
+                              fontStyle: FontStyle.italic,
+                            ),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w300,
+                            fontStyle: FontStyle.italic,
+                          ),
+                    ),
                 ],
               ),
             ),
@@ -232,27 +272,40 @@ class _FooterWidgetState extends State<FooterWidget> {
                       fit: BoxFit.fitHeight,
                     ),
                   ),
-                  Text(
-                    'Diario',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.roboto(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
+                  if (functions.printCurrentRoute(getCurrentRoute(context)))
+                    Text(
+                      'Diario',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .fontStyle,
                           ),
-                          color: FlutterFlowTheme.of(context).accent1,
-                          fontSize: 12.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
-                  ),
+                    ),
+                  if (!functions.printCurrentRoute(getCurrentRoute(context)))
+                    Text(
+                      'Diario',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w300,
+                              fontStyle: FontStyle.italic,
+                            ),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w300,
+                            fontStyle: FontStyle.italic,
+                          ),
+                    ),
                 ],
               ),
             ),
@@ -282,27 +335,40 @@ class _FooterWidgetState extends State<FooterWidget> {
                       fit: BoxFit.fitHeight,
                     ),
                   ),
-                  Text(
-                    'Recursos',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.roboto(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
+                  if (functions.printCurrentRoute(getCurrentRoute(context)))
+                    Text(
+                      'Recursos',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .fontStyle,
                           ),
-                          color: FlutterFlowTheme.of(context).accent1,
-                          fontSize: 12.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
-                  ),
+                    ),
+                  if (!functions.printCurrentRoute(getCurrentRoute(context)))
+                    Text(
+                      'Recursos',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w300,
+                              fontStyle: FontStyle.italic,
+                            ),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w300,
+                            fontStyle: FontStyle.italic,
+                          ),
+                    ),
                 ],
               ),
             ),

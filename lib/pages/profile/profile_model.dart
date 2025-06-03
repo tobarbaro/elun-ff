@@ -13,10 +13,10 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
 
   final formKey1 = GlobalKey<FormState>();
   final formKey2 = GlobalKey<FormState>();
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploadDataRal = false;
+  FFUploadedFile uploadedLocalFile_uploadDataRal =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  String uploadedFileUrl_uploadDataRal = '';
 
   // State field(s) for inputNombre widget.
   FocusNode? inputNombreFocusNode;

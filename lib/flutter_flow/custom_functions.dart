@@ -39,3 +39,16 @@ DateTime addOrSubtractDays(
 ) {
   return date.add(Duration(days: days));
 }
+
+bool printCurrentRoute(String currrentRoute) {
+  if (currrentRoute == "/")
+    return true;
+  else if (currrentRoute == "/playList")
+    return true;
+  else if (currrentRoute == "/exercises")
+    return true;
+  else if (currrentRoute == "/posts")
+    return true;
+  else if (currrentRoute == "/resources") return true;
+  return false;
+}

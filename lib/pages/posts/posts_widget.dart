@@ -117,8 +117,7 @@ class _PostsWidgetState extends State<PostsWidget> {
                                         initialDate: (_model.dateStart ??
                                             DateTime.now()),
                                         firstDate: DateTime(1900),
-                                        lastDate: (_model.dateStart ??
-                                            DateTime.now()),
+                                        lastDate: DateTime(2050),
                                         builder: (context, child) {
                                           return wrapInMaterialDatePickerTheme(
                                             context,
@@ -154,16 +153,16 @@ class _PostsWidgetState extends State<PostsWidget> {
                                                     ),
                                             pickerBackgroundColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .accent3,
                                             pickerForegroundColor:
                                                 FlutterFlowTheme.of(context)
                                                     .primaryText,
                                             selectedDateTimeBackgroundColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .accent3,
+                                                    .error,
                                             selectedDateTimeForegroundColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .error,
+                                                    .info,
                                             actionButtonForegroundColor:
                                                 FlutterFlowTheme.of(context)
                                                     .error,
@@ -289,19 +288,19 @@ class _PostsWidgetState extends State<PostsWidget> {
                                                     ),
                                             pickerBackgroundColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .accent3,
                                             pickerForegroundColor:
                                                 FlutterFlowTheme.of(context)
                                                     .primaryText,
                                             selectedDateTimeBackgroundColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryText,
+                                                    .error,
                                             selectedDateTimeForegroundColor:
                                                 FlutterFlowTheme.of(context)
                                                     .info,
                                             actionButtonForegroundColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .primaryText,
+                                                    .error,
                                             iconSize: 24.0,
                                           );
                                         },
@@ -320,7 +319,10 @@ class _PostsWidgetState extends State<PostsWidget> {
                                           _model.datePicked2 = _model.dateEnd;
                                         });
                                       }
-                                      _model.dateEnd = _model.datePicked2;
+                                      _model.dateEnd =
+                                          _model.datePicked2 != null
+                                              ? _model.datePicked2
+                                              : _model.dateEnd;
                                       safeSetState(() {});
                                       safeSetState(() => _model
                                           .firestoreRequestCompleter = null);
@@ -491,6 +493,7 @@ class _PostsWidgetState extends State<PostsWidget> {
 
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
+                                  primary: false,
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
                                   itemCount: listViewPostsRecordList.length,
@@ -637,12 +640,12 @@ class _PostsWidgetState extends State<PostsWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 100.0),
                   child: FlutterFlowIconButton(
-                    borderRadius: 60.0,
-                    buttonSize: 60.0,
+                    borderRadius: 50.0,
+                    buttonSize: 40.0,
                     icon: FaIcon(
                       FontAwesomeIcons.edit,
                       color: FlutterFlowTheme.of(context).info,
-                      size: 40.0,
+                      size: 25.0,
                     ),
                     onPressed: () async {
                       await showModalBottomSheet(

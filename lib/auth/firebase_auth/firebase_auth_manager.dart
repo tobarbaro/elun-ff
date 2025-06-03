@@ -118,7 +118,7 @@ class FirebaseAuthManager extends AuthManager
       if (e.code == 'requires-recent-login') {
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: ${e.message!}')),
+          SnackBar(content: Text('Usuario y/o contraseña incorrectas.')),
         );
       }
     }
@@ -131,10 +131,10 @@ class FirebaseAuthManager extends AuthManager
   }) async {
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-    } on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: ${e.message!}')),
+        SnackBar(content: Text('Usuario y/o contraseña incorrectas.')),
       );
       return null;
     }
@@ -206,7 +206,7 @@ class FirebaseAuthManager extends AuthManager
       } else if (phoneAuthManager.phoneAuthError != null) {
         final e = phoneAuthManager.phoneAuthError!;
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Error: ${e.message!}'),
+          content: Text('Usuario y/o contraseña incorrectas.'),
         ));
         phoneAuthManager.update(() => phoneAuthManager.phoneAuthError = null);
       }
@@ -314,7 +314,7 @@ class FirebaseAuthManager extends AuthManager
       final errorMsg = switch (e.code) {
         'email-already-in-use' => 'Este correo electrónico ya fue utilizado.',
         'INVALID_LOGIN_CREDENTIALS' => 'Usuario y/o contraseña incorrectas.',
-        _ => 'Error: ${e.message!}',
+        _ => 'Usuario y/o contraseña incorrectas.',
       };
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(

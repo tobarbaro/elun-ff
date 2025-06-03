@@ -113,7 +113,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ResultsWidget.routeName,
           path: ResultsWidget.routePath,
-          builder: (context, params) => ResultsWidget(),
+          builder: (context, params) => ResultsWidget(
+            score: params.getParam(
+              'score',
+              ParamType.double,
+            ),
+          ),
         ),
         FFRoute(
           name: ExercisesWidget.routeName,
@@ -188,6 +193,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ProfileWidget.routeName,
           path: ProfileWidget.routePath,
           builder: (context, params) => ProfileWidget(),
+        ),
+        FFRoute(
+          name: ResourceFormWidget.routeName,
+          path: ResourceFormWidget.routePath,
+          asyncParams: {
+            'resourceParam':
+                getDoc(['resources'], ResourcesRecord.fromSnapshot),
+          },
+          builder: (context, params) => ResourceFormWidget(
+            resourceParam: params.getParam(
+              'resourceParam',
+              ParamType.Document,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

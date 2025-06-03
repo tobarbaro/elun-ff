@@ -27,10 +27,14 @@ class PlayListFormModel extends FlutterFlowModel<PlayListFormWidget> {
   FocusNode? inputURLFocusNode;
   TextEditingController? inputURLTextController;
   String? Function(BuildContext, String?)? inputURLTextControllerValidator;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  // State field(s) for inputOrder widget.
+  FocusNode? inputOrderFocusNode;
+  TextEditingController? inputOrderTextController;
+  String? Function(BuildContext, String?)? inputOrderTextControllerValidator;
+  bool isDataUploading_uploadDataOsm = false;
+  FFUploadedFile uploadedLocalFile_uploadDataOsm =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  String uploadedFileUrl_uploadDataOsm = '';
 
   @override
   void initState(BuildContext context) {
@@ -44,5 +48,8 @@ class PlayListFormModel extends FlutterFlowModel<PlayListFormWidget> {
 
     inputURLFocusNode?.dispose();
     inputURLTextController?.dispose();
+
+    inputOrderFocusNode?.dispose();
+    inputOrderTextController?.dispose();
   }
 }

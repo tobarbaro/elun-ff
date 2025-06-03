@@ -11,6 +11,7 @@ import 'schema/posts_record.dart';
 import 'schema/exercise_progress_record.dart';
 import 'schema/resources_record.dart';
 import 'schema/playlists_record.dart';
+import 'schema/resource_rows_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -25,6 +26,7 @@ export 'schema/posts_record.dart';
 export 'schema/exercise_progress_record.dart';
 export 'schema/resources_record.dart';
 export 'schema/playlists_record.dart';
+export 'schema/resource_rows_record.dart';
 
 /// Functions to query ExercisesRecords (as a Stream and as a Future).
 Future<int> queryExercisesRecordCount({
@@ -243,6 +245,43 @@ Future<List<PlaylistsRecord>> queryPlaylistsRecordOnce({
     queryCollectionOnce(
       PlaylistsRecord.collection,
       PlaylistsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ResourceRowsRecords (as a Stream and as a Future).
+Future<int> queryResourceRowsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ResourceRowsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ResourceRowsRecord>> queryResourceRowsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ResourceRowsRecord.collection,
+      ResourceRowsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ResourceRowsRecord>> queryResourceRowsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ResourceRowsRecord.collection,
+      ResourceRowsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

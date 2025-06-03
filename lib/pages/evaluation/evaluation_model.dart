@@ -4,6 +4,10 @@ import 'evaluation_widget.dart' show EvaluationWidget;
 import 'package:flutter/material.dart';
 
 class EvaluationModel extends FlutterFlowModel<EvaluationWidget> {
+  ///  Local state fields for this page.
+
+  double score = 0.0;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for PageView widget.

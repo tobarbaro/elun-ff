@@ -36,6 +36,13 @@ class _PlayListFormWidgetState extends State<PlayListFormWidget> {
 
     _model.inputURLTextController ??= TextEditingController();
     _model.inputURLFocusNode ??= FocusNode();
+
+    _model.inputOrderTextController ??= TextEditingController();
+    _model.inputOrderFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
+          _model.inputOrderTextController?.text = '0';
+        }));
   }
 
   @override
@@ -293,11 +300,115 @@ class _PlayListFormWidgetState extends State<PlayListFormWidget> {
                           .asValidator(context),
                     ),
                   ),
+                  Container(
+                    width: double.infinity,
+                    child: TextFormField(
+                      controller: _model.inputOrderTextController,
+                      focusNode: _model.inputOrderFocusNode,
+                      autofocus: false,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        labelText: 'Orden',
+                        labelStyle: FlutterFlowTheme.of(context)
+                            .labelMedium
+                            .override(
+                              font: GoogleFonts.poppins(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 12.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontStyle,
+                            ),
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .labelMedium
+                            .override(
+                              font: GoogleFonts.poppins(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FontStyle.italic,
+                              ),
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 12.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontWeight,
+                              fontStyle: FontStyle.italic,
+                            ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        filled: true,
+                        fillColor:
+                            FlutterFlowTheme.of(context).primaryBackground,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.poppins(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                      minLines: 1,
+                      keyboardType: TextInputType.number,
+                      cursorColor: FlutterFlowTheme.of(context).primaryText,
+                      validator: _model.inputOrderTextControllerValidator
+                          .asValidator(context),
+                    ),
+                  ),
                   if (_model.imageVar != null && _model.imageVar != '')
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        _model.uploadedFileUrl,
+                        _model.uploadedFileUrl_uploadDataOsm,
                         width: 200.0,
                         height: 200.0,
                         fit: BoxFit.cover,
@@ -313,7 +424,8 @@ class _PlayListFormWidgetState extends State<PlayListFormWidget> {
                       if (selectedMedia != null &&
                           selectedMedia.every((m) =>
                               validateFileFormat(m.storagePath, context))) {
-                        safeSetState(() => _model.isDataUploading = true);
+                        safeSetState(
+                            () => _model.isDataUploading_uploadDataOsm = true);
                         var selectedUploadedFiles = <FFUploadedFile>[];
 
                         var downloadUrls = <String>[];
@@ -338,15 +450,16 @@ class _PlayListFormWidgetState extends State<PlayListFormWidget> {
                               .map((u) => u!)
                               .toList();
                         } finally {
-                          _model.isDataUploading = false;
+                          _model.isDataUploading_uploadDataOsm = false;
                         }
                         if (selectedUploadedFiles.length ==
                                 selectedMedia.length &&
                             downloadUrls.length == selectedMedia.length) {
                           safeSetState(() {
-                            _model.uploadedLocalFile =
+                            _model.uploadedLocalFile_uploadDataOsm =
                                 selectedUploadedFiles.first;
-                            _model.uploadedFileUrl = downloadUrls.first;
+                            _model.uploadedFileUrl_uploadDataOsm =
+                                downloadUrls.first;
                           });
                         } else {
                           safeSetState(() {});
@@ -354,7 +467,7 @@ class _PlayListFormWidgetState extends State<PlayListFormWidget> {
                         }
                       }
 
-                      _model.imageVar = _model.uploadedFileUrl;
+                      _model.imageVar = _model.uploadedFileUrl_uploadDataOsm;
                       safeSetState(() {});
                     },
                     text: 'Agregar Imagen',
@@ -405,6 +518,8 @@ class _PlayListFormWidgetState extends State<PlayListFormWidget> {
                               image: _model.imageVar,
                               title: _model.inputTitleTextController.text,
                               url: _model.inputURLTextController.text,
+                              order: int.tryParse(
+                                  _model.inputOrderTextController.text),
                             ));
                         Navigator.pop(context, true);
                       },

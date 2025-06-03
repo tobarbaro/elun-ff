@@ -61,6 +61,12 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
         text: widget.exercise != null ? widget.exercise?.objective : '');
     _model.inputObjectiveFocusNode ??= FocusNode();
 
+    _model.inputOrderTextController ??= TextEditingController(
+        text: widget.exercise != null
+            ? widget.exercise?.order.toString()
+            : '0');
+    _model.inputOrderFocusNode ??= FocusNode();
+
     _model.inputInstructionTextController ??= TextEditingController();
     _model.inputInstructionFocusNode ??= FocusNode();
 
@@ -477,6 +483,121 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
                                     .asValidator(context),
                               ),
                             ),
+                            Container(
+                              width: double.infinity,
+                              child: TextFormField(
+                                controller: _model.inputOrderTextController,
+                                focusNode: _model.inputOrderFocusNode,
+                                autofocus: false,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  isDense: true,
+                                  labelText: 'Orden',
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context).info,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                keyboardType: TextInputType.number,
+                                cursorColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                validator: _model
+                                    .inputOrderTextControllerValidator
+                                    .asValidator(context),
+                              ),
+                            ),
                             Text(
                               'Instrucciones',
                               style: FlutterFlowTheme.of(context)
@@ -506,6 +627,7 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
 
                                 return ListView.separated(
                                   padding: EdgeInsets.zero,
+                                  primary: false,
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
                                   itemCount: instruction.length,
@@ -777,30 +899,6 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
                                     });
                                   },
                                 ),
-                                Text(
-                                  'Hello World',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        font: GoogleFonts.poppins(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                ),
                               ].divide(SizedBox(width: 10.0)),
                             ),
                             Divider(
@@ -853,8 +951,8 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
                                     selectedMedia.every((m) =>
                                         validateFileFormat(
                                             m.storagePath, context))) {
-                                  safeSetState(
-                                      () => _model.isDataUploading1 = true);
+                                  safeSetState(() => _model
+                                      .isDataUploading_fileUploades = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
@@ -881,16 +979,16 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
                                         .map((u) => u!)
                                         .toList();
                                   } finally {
-                                    _model.isDataUploading1 = false;
+                                    _model.isDataUploading_fileUploades = false;
                                   }
                                   if (selectedUploadedFiles.length ==
                                           selectedMedia.length &&
                                       downloadUrls.length ==
                                           selectedMedia.length) {
                                     safeSetState(() {
-                                      _model.uploadedLocalFile1 =
+                                      _model.uploadedLocalFile_fileUploades =
                                           selectedUploadedFiles.first;
-                                      _model.uploadedFileUrl1 =
+                                      _model.uploadedFileUrl_fileUploades =
                                           downloadUrls.first;
                                     });
                                   } else {
@@ -899,7 +997,8 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
                                   }
                                 }
 
-                                _model.imagePVar = _model.uploadedFileUrl1;
+                                _model.imagePVar =
+                                    _model.uploadedFileUrl_fileUploades;
                                 safeSetState(() {});
                               },
                               text: 'Agregar Imagen',
@@ -986,8 +1085,8 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
                                     selectedMedia.every((m) =>
                                         validateFileFormat(
                                             m.storagePath, context))) {
-                                  safeSetState(
-                                      () => _model.isDataUploading2 = true);
+                                  safeSetState(() => _model
+                                      .isDataUploading_uploadThumbnail = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
@@ -1014,16 +1113,17 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
                                         .map((u) => u!)
                                         .toList();
                                   } finally {
-                                    _model.isDataUploading2 = false;
+                                    _model.isDataUploading_uploadThumbnail =
+                                        false;
                                   }
                                   if (selectedUploadedFiles.length ==
                                           selectedMedia.length &&
                                       downloadUrls.length ==
                                           selectedMedia.length) {
                                     safeSetState(() {
-                                      _model.uploadedLocalFile2 =
+                                      _model.uploadedLocalFile_uploadThumbnail =
                                           selectedUploadedFiles.first;
-                                      _model.uploadedFileUrl2 =
+                                      _model.uploadedFileUrl_uploadThumbnail =
                                           downloadUrls.first;
                                     });
                                   } else {
@@ -1032,7 +1132,8 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
                                   }
                                 }
 
-                                _model.thumbPVar = _model.uploadedFileUrl2;
+                                _model.thumbPVar =
+                                    _model.uploadedFileUrl_uploadThumbnail;
                                 safeSetState(() {});
                               },
                               text: 'Agregar miñatura',
@@ -1192,6 +1293,8 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
                                             thumbnail: _model.thumbPVar,
                                             needsWeek:
                                                 _model.switchNeedsWeekValue,
+                                            order: int.tryParse(_model
+                                                .inputOrderTextController.text),
                                           ),
                                           ...mapToFirestore(
                                             {
@@ -1217,6 +1320,8 @@ class _ExerciseFormWidgetState extends State<ExerciseFormWidget> {
                                             thumbnail: _model.thumbPVar,
                                             needsWeek:
                                                 _model.switchNeedsWeekValue,
+                                            order: int.tryParse(_model
+                                                .inputOrderTextController.text),
                                           ),
                                           ...mapToFirestore(
                                             {

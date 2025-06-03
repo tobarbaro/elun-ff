@@ -119,7 +119,10 @@ class _PlayListWidgetState extends State<PlayListWidget> {
                               ),
                             ),
                             StreamBuilder<List<PlaylistsRecord>>(
-                              stream: queryPlaylistsRecord(),
+                              stream: queryPlaylistsRecord(
+                                queryBuilder: (playlistsRecord) =>
+                                    playlistsRecord.orderBy('order'),
+                              ),
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
