@@ -19,6 +19,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _appVersion = prefs.getString('ff_appVersion') ?? _appVersion;
     });
+    _safeInit(() {
+      _myScore = prefs.getDouble('ff_myScore') ?? _myScore;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -33,6 +36,13 @@ class FFAppState extends ChangeNotifier {
   set appVersion(String value) {
     _appVersion = value;
     prefs.setString('ff_appVersion', value);
+  }
+
+  double _myScore = 0.0;
+  double get myScore => _myScore;
+  set myScore(double value) {
+    _myScore = value;
+    prefs.setDouble('ff_myScore', value);
   }
 }
 

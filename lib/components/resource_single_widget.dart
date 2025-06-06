@@ -201,6 +201,7 @@ class _ResourceSingleWidgetState extends State<ResourceSingleWidget> {
 
                       return ListView.separated(
                         padding: EdgeInsets.zero,
+                        primary: false,
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: listViewResourceRowsRecordList.length,

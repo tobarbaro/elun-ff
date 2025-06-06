@@ -37,6 +37,9 @@ class _HomeWidgetState extends State<HomeWidget> {
       _model.returnAppVersion = await actions.getAppVersion();
       FFAppState().appVersion = _model.returnAppVersion!;
       safeSetState(() {});
+      if (FFAppState().myScore == 0.0) {
+        context.pushNamed(EvaluationWidget.routeName);
+      }
     });
   }
 
